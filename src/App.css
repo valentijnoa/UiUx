@@ -1,0 +1,396 @@
+@import "./index.css";
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+.font-pokemon {
+  font-family: "Press Start 2P", cursive;
+}
+
+.animated-gradient {
+  font-family: "Press Start 2P", cursive;
+  background: linear-gradient(45deg, #f7d200, #005cbf, #ff1a1a);
+  background-size: 200% 200%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradientAnimation 2s ease infinite;
+  font-size: 42px;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+* {
+  margin: 0;
+  font-family: "Press Start 2P", cursive;
+}
+
+ul {
+  list-style: none;
+  background-color: red;
+  height: 50px;
+}
+
+li {
+  float: right;
+  padding: 16px;
+}
+
+body {
+  overflow: hidden;
+}
+
+.video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  background-color: red;
+  filter: brightness(80%);
+}
+
+.container-landing {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #000;
+  width: 100%;
+  text-align: center;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  padding-top: 10rem;
+}
+
+.content > h1 > img {
+  width: 700px;
+}
+
+.homeText {
+  font-size: 10px;
+  padding-top: 50px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-weight: normal;
+}
+
+.pokeball {
+  width: fit-content;
+  margin-top: 80px;
+  line-height: 60px;
+  font-weight: bold;
+  font-size: large;
+  color: black;
+  padding: 0 40px;
+  background: lightblue;
+  border: 3px solid #003060;
+  border-radius: 40px;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pokeball:hover {
+  background: #003060;
+  color: white;
+  position: relative;
+  cursor: pointer;
+  transition-duration: 500ms;
+  box-shadow: none;
+}
+
+h1 {
+  width: 100%;
+  float: left;
+  text-align: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.background {
+  background: url(../src/images/background.jpg) no-repeat center fixed;
+  background-size: cover;
+  height: 95.3vh;
+}
+
+.achtergrond {
+  top: 0;
+  background-image: url("../public/videos/gameBG.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 92.9vh;
+}
+
+.spacer {
+  width: 100%;
+  height: 100px;
+}
+
+form {
+  background-color: blue;
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+
+input {
+  border-radius: 7px;
+  width: 60%;
+  margin-bottom: 10px;
+  padding: 16px;
+  border-color: transparent;
+  text-align: left;
+}
+
+.button {
+  border-radius: 7px;
+  border-color: transparent;
+  width: 40%;
+  padding: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  font-size: medium;
+  cursor: pointer;
+  font-family: "Press Start 2P", cursive;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  font-family: "Press Start 2P", cursive;
+}
+
+.link:hover {
+  transition-duration: 500ms;
+  color: yellow;
+}
+
+.mute-button {
+  background: none;
+  color: white;
+  border: none;
+  position: fixed;
+  bottom: 10px; /* Adjust this value to your preferred bottom spacing */
+  left: 10px;
+}
+
+.speaker {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+  span {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    margin: 11px 0 0 2px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-color: transparent #fff transparent transparent;
+      border-width: 10px 14px 10px 15px;
+      left: -13px;
+      top: 5px;
+    }
+
+    &:before {
+      transform: rotate(45deg);
+      border-radius: 0 50px 0 0;
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-style: double;
+      border-color: #fff;
+      border-width: 7px 7px 0 0;
+      left: 18px;
+      top: 9px;
+      transition: all 0.2s ease-out;
+    }
+  }
+
+  &:hover {
+    span:before {
+      transform: scale(0.8) translate(-3px, 0) rotate(42deg);
+    }
+  }
+
+  &.mute {
+    span:before {
+      transform: scale(0.5) translate(-15px, 0) rotate(36deg);
+      opacity: 0;
+    }
+  }
+}
+
+/* Game Css */
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 450px;
+  min-height: 450px;
+}
+
+.mr {
+  margin-right: 36rem;
+  margin-top: 2rem;
+  float: left;
+}
+
+.pokemon {
+  width: 30rem;
+  height: 30rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.console {
+  margin-left: 16rem;
+}
+
+.score,
+.timer {
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #fff;
+  color: black;
+  text-shadow: 1px 1px 2px gray;
+  text-align: center;
+}
+
+.score {
+  width: 150px;
+  margin-bottom: 1rem;
+  margin-left: 2.5rem;
+}
+
+.timer {
+  width: 230px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10rem;
+}
+
+.option {
+  background-color: #4299e1;
+  border: none;
+  color: #ffffff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 0.25rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #005cbf;
+  transition-duration: 500ms;
+}
+
+.correct {
+  margin-top: 1rem;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px gray;
+  font-weight: bold;
+  float: right;
+}
+
+.wrong {
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #fff;
+  color: black;
+  text-shadow: 1px 1px 2px gray;
+  text-align: center;
+  white-space: nowrap;
+  float: right;
+}
+
+.next {
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background: #003060;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
+  cursor: pointer;
+  float: right;
+  margin-top: 10px;
+}
+
+table {
+  width: 20%;
+  margin-left: 600px;
+  margin-top: 150px;
+  text-align: center;
+  opacity: 0.7;
+  border-radius: 10px;
+  border: solid 7px #e53e3e;
+  background-color: #000;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 15px;
+  color: #ffffff;
+  opacity: 100%;
+}
+
+th {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.scoreboard {
+  background: url(../src/images/scoreboard-background.gif) no-repeat center
+    fixed;
+  background-size: cover;
+  height: 95.3vh;
+}
+
+
+
